@@ -55,8 +55,9 @@ class PostController extends Controller
 
         $post->update($request->validated());
 
-        session()->flash('status','Post atualizado com sucesso!');
-        return to_route('posts.index');
+//      session()->flash('status','Post atualizado com sucesso!');
+        return to_route('posts.index')
+            ->with('status','Post atualizado com sucesso!');
     }
 
 }
