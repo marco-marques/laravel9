@@ -1,10 +1,13 @@
 <x-layouts.app
-    title="Novo post"
-    meta-description="Formulário para criar novo post"
+    title="{{$post->title}}"
+    meta-description="{{$post->body}}"
 >
-    <h2>Novo post</h2>
-    <form action="{{route('posts.store')}}" method="POST">
+
+    <h1>Editar post</h1>
+
+    <form action="{{route('posts.update',$post)}}" method="POST">
         @csrf
+        @method('PATCH')
 
         @include('posts.form-fields')
 
@@ -12,6 +15,6 @@
         <button type="submit">Enviar</button>
 
     </form>
-    <br>
+
     <a href="{{route('posts.index')}}">Voltar</a>
 </x-layouts.app>
